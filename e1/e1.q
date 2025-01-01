@@ -13,5 +13,5 @@ dropBeforeRandom:{
   x}
 
 / Apply filter 
-times: dropBeforeRandom tim es
-times
+times: dropBeforeRandom times
+
