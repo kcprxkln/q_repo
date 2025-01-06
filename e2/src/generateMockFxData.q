@@ -2,7 +2,7 @@
 \S 12 
 
 / Load variables from configuration file
-\l config.q 
+\l ../config.q 
 
 
 / TIME VECTORS GENERATION 

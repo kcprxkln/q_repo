@@ -1,5 +1,5 @@
 / load configuration file
-\l config.q 
+\l ../config.q 
 
 / List of functions that can be called from clients
 .auth.allowedFunctions:`calcVwapBySymAsync
@@ -25,13 +25,18 @@
 fxTable: ("psjj";enlist",") 0: fxTableDir
 
 / Calculates the Volume Weighted Average Price (VWAP) for the given time range and symbols.
-/ x = list of FX pairs (symbols) to calculate VWAP for
-/ y = start timestamp of the time range
-/ z = end timestamp of the time range
+/ x = list of FX pairs (symbols) to calculate VWAP for (11)
+/ y = start timestamp of the time range (12)
+/ z = end timestamp of the time range (12)
 / callback = callback function to return the result asynchronously
 calcVwapBySymAsync:{[x; y; z; callback]
+  / Validate input types
+  if[(abs type[x])<>11; (neg .z.w) (callback; `type_error`invalid_x); :()];
+  if[type[y]<>-12; (neg .z.w) (callback; `type_error`invalid_y); :()];
+  if[type[z]<>-12; (neg .z.w) (callback; `type_error`invalid_z); :()];
+
   res: select vwap: `long$qty wavg price by sym from fxTable where timeStamp within (y;z), sym in x; / calculate VWAP 
-  (neg .z.w) (callback; res)} / send result asynchronously    
+  (neg .z.w) (callback; res)} / send result asynchronously
 
 
 / Use the port provided in the config file

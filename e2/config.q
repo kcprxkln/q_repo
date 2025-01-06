@@ -4,8 +4,11 @@
 
 
 / Paths
-fxTableSaveDir: `$"../data/fxTable.csv"            
-fxTableDir:`:../data/fxTable.csv               / Relative path to the fxTable data file
+.path.root: "" / absolute path to the e2 folder. getenv`E2_ROOT
+.path.data: .path.root,"/data/";
+.path.src: .path.root,"/src/";
+fxTableSaveDir: `$.path.data,"fxTable.csv"            
+fxTableDir:`$.path.data,"fxTable.csv"               / Relative path to the fxTable data file
 
 
 / Mock data params
