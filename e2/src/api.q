@@ -38,6 +38,12 @@ calcVwapBySymAsync:{[x; y; z; callback]
   res: select vwap: `long$qty wavg price by sym from fxTable where timeStamp within (y;z), sym in x; / calculate VWAP 
   (neg .z.w) (callback; res)} / send result asynchronously
 
+/ sync version for testing purposes 
+calcVwapBySymSync:{[x;y;z]
+  if[(abs type[x])<>11h; :`type_error`invalid_x];
+  if[type[y]<>-12h; :`type_error`invalid_y];
+  if[type[z]<>-12h; :`type_error`invalid_z];
+  select vwap:`long$qty wavg price by sym from fxTable where timeStamp within (y;z),sym in x}
 
 / Use the port provided in the config file
 defaults:enlist[`p]!enlist port

@@ -20,5 +20,4 @@ startTimestamp: 2023.01.01T12:00:00.000000000  / Starting timestamp for mock dat
 
 / API Settings
 port: 5000                                     / Port for the API service
-apiConnection: `::5000
 
