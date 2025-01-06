@@ -26,8 +26,8 @@ fxTable: ("psjj";enlist",") 0: fxTableDir
 
 / Calculates the Volume Weighted Average Price (VWAP) for the given time range and symbols.
 / x = list of FX pairs (symbols) to calculate VWAP for (11)
-/ y = start timestamp of the time range (12)
-/ z = end timestamp of the time range (12)
+/ y = start timestamp of the time range (-12)
+/ z = end timestamp of the time range (-12)
 / callback = callback function to return the result asynchronously
 calcVwapBySymAsync:{[x; y; z; callback]
   / Validate input types
