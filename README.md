@@ -70,8 +70,9 @@ The server will run automatically on port provided in `config.q` file.
 After that, you can connect to the port from different q process and run calls:
 
 open new q process, write in console:
-`> q`
-
+```
+/your/path> q
+```
 Connect to the server using port (Replace `<port>` with the port number from `config.q`)
 ```
 q) h: hopen `::<port>
