@@ -86,7 +86,14 @@ Call *`calcVwapBySymAsync* method with the following arguments:
 ```
 (neg h) (`calcVwapBySymAsync; `USDJPY`EURUSD; 2023.01.01D12:00:00.000347123; 2023.01.01D12:01:22.000546493; {show x})
 ```
-If the provided data was valid, in response you should get a table containing a fx pairs and their Volume Weighted Average Price. If any of arguments will have incorrect datatype, you will see that in response as well e.g.
+If the provided data was valid, in response you should get a table containing a fx pairs and their Volume Weighted Average Price. 
+```
+sym   | vwap
+------| ---------
+EURUSD| 1199963
+USDJPY| 114999910
+```
+If any of arguments will have incorrect datatype, you will see that in response as well e.g.
 ```
  `type_error`invalid_x
 ```
